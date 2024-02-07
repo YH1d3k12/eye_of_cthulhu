@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Eye of Cthulhu</title>
+</head>
+
+<body>
+    <div class="sclera">
+        <div class="blink"></div>
+        <div class="eyelid">
+            <div class="pupil"></div>
+        </div>
+        <div class="blink"></div>
+    </div>
+    <script>
+        const eye = document.querySelector(".eyelid");
+
+        document.addEventListener("mousemove", (e) => {
+            const mouseX = e.clientX * 100 / window.innerWidth + "%";
+            const mouseY = e.clientY * 100 / window.innerHeight + "%";
+
+            eye.style.left = mouseX;
+            eye.style.top = mouseY;
+            eye.style.transform = `translate(-${mouseX}, -${mouseY})`;
+        })
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background: radial-gradient(circle, #0e0e0e 0%, #000000 100%);
+        }
+
+        .sclera {
+            position: relative;
+            height: 120px;
+            width: 240px;
+            border-radius: 50%;
+            border: solid 5px #415d43;
+            background: linear-gradient(35deg, #e6ecf5 0%, #b3cbb9 50%, #8fb996 100%);
+            box-shadow: inset 0px 0px 25px 0px #415d43;
+            overflow: hidden;
+        }
+
+        .eyelid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 80px;
+            width: 80px;
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, #25422c 0%, #19bf40 25%, #3b8c4d 50%, #56f67c 75%, #07ff41 100%);
+            box-shadow: 0px 0px 20px #56f67c, 0px 0px 40px #19bf40;
+        }
+
+        .pupil {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: #111d13;
+        }
+    </style>
+</body>
+
+</html>
